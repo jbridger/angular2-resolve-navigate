@@ -4,13 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { MyModule } from './extensions/mymodule.module';
 import { RouterModule, Routes } from '@angular/router';
+import { MyModule } from './extensions/mymodule/mymodule.module';
 
 const appRoutes: Routes = [
   {
     path: 'home',
-    loadChildren: 'app/extensions/mymodule.module#MyModule',
+    loadChildren: 'app/extensions/mymodule/mymodule.module#MyModule',
     data: { preload: true }
   },
 

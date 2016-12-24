@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { HomeComponent } from './home.component';
 import { ChildComponent } from './child.component';
-import { MyModuleRouting } from './mymodule-routing.module';
 import { DataService } from './data.service';
 import { ErrorComponent } from './error.component';
+import { HomeModuleRouting } from './home-routing.module';
 
 
 @NgModule({
   imports: [
-    MyModuleRouting
+    HomeModuleRouting
   ],
   declarations: [
     HomeComponent,
@@ -19,5 +19,5 @@ import { ErrorComponent } from './error.component';
     DataService
   ],
 })
-export class MyModule {
+export class HomeModule {
 }

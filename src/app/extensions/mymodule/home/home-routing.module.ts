@@ -35,5 +35,5 @@ const appRoutes: Routes = [
       MyResolver
   ]
 })
-export class MyModuleRouting {
+export class HomeModuleRouting {
 }
