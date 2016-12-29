@@ -5,25 +5,21 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
-import { MyModule } from './extensions/mymodule/mymodule.module';
 
 const appRoutes: Routes = [
-  {
-    path: 'home',
-    loadChildren: 'app/extensions/mymodule/mymodule.module#MyModule',
-    data: { preload: true }
-  },
-
   {
     path: '',
     redirectTo: '/home',
     pathMatch: 'full'
   },
+  {
+    path: 'home',
+    loadChildren: 'app/extensions/mymodule/mymodule.module#MyModule',
+  },
 ];
 
 @NgModule({
   imports: [
-    MyModule,
     BrowserModule,
     FormsModule,
     HttpModule,

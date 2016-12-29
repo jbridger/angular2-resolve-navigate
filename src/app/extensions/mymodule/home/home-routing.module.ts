@@ -6,7 +6,7 @@ import { MyResolver } from './my-resolver.service';
 import { ErrorComponent } from './error.component';
 const appRoutes: Routes = [
   {
-    path: 'home',
+    path: '',
     component: HomeComponent,
     children: [
       {
@@ -26,7 +26,7 @@ const appRoutes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forChild(appRoutes)
   ],
   exports: [
     RouterModule
