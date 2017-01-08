@@ -24,7 +24,7 @@ export class MyResolver implements Resolve<ServiceResult> {
         })
         .catch((serviceResult: ServiceResult) => {
           this.errorMessage = serviceResult.error;
-          this.router.navigateByUrl('/home/error');
+          this.router.navigateByUrl('/home/error', {skipLocationChange: true});
           return Observable.empty();
         });
   }

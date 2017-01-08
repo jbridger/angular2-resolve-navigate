@@ -4,6 +4,7 @@ import { ChildComponent } from './child.component';
 import { DataService } from './data.service';
 import { ErrorComponent } from './error.component';
 import { HomeModuleRouting } from './home-routing.module';
+import { BlankComponent } from './blank.component';
 
 
 @NgModule({
@@ -11,6 +12,7 @@ import { HomeModuleRouting } from './home-routing.module';
     HomeModuleRouting
   ],
   declarations: [
+    BlankComponent,
     HomeComponent,
     ChildComponent,
     ErrorComponent

@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { ChildComponent } from './child.component';
 import { MyResolver } from './my-resolver.service';
 import { ErrorComponent } from './error.component';
+import { BlankComponent } from './blank.component';
 const appRoutes: Routes = [
   {
     path: '',
@@ -11,6 +12,10 @@ const appRoutes: Routes = [
     children: [
       {
         path: '',
+        component: BlankComponent,
+      },
+      {
+        path: 'display',
         component: ChildComponent,
         resolve: {
           serviceResult: MyResolver
