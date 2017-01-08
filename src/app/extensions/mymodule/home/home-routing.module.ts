@@ -15,15 +15,15 @@ const appRoutes: Routes = [
         component: BlankComponent,
       },
       {
-        path: 'display',
+        path: 'error',
+        component: ErrorComponent,
+      },
+      {
+        path: ':id',
         component: ChildComponent,
         resolve: {
           serviceResult: MyResolver
         }
-      },
-      {
-        path: 'error',
-        component: ErrorComponent,
       }
     ]
   },

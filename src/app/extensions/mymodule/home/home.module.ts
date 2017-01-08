@@ -5,10 +5,12 @@ import { DataService } from './data.service';
 import { ErrorComponent } from './error.component';
 import { HomeModuleRouting } from './home-routing.module';
 import { BlankComponent } from './blank.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   imports: [
+    FormsModule,
     HomeModuleRouting
   ],
   declarations: [

@@ -9,15 +9,13 @@ import { ServiceResult } from './service-result';
 @Injectable()
 export class DataService {
 
-  public data: string = 'init';
-
   private errorResponse: boolean = false;
 
-  public getData(): Observable<ServiceResult> {
+  public getData(id: string): Observable<ServiceResult> {
     if (this.errorResponse) {
-      return Observable.throw(new ServiceResult(undefined, 'errored'));
+      return Observable.throw(new ServiceResult(undefined, `errored: ${id}`));
     }
-    return Observable.of(new ServiceResult('we are good', undefined));
+    return Observable.of(new ServiceResult(`we are good: ${id}`, undefined));
   }
 
   public setErrorResponse(errorResponse: boolean) {

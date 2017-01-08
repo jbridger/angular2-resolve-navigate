@@ -1,7 +1,8 @@
 import { Injectable }             from '@angular/core';
 import {
   Router, Resolve, RouterStateSnapshot,
-  ActivatedRouteSnapshot
+  ActivatedRouteSnapshot,
+  ActivatedRoute
 } from '@angular/router';
 import { Observable } from 'rxjs';
 import { DataService } from './data.service';
@@ -14,11 +15,17 @@ export class MyResolver implements Resolve<ServiceResult> {
 
   public errorMessage: string;
 
-  constructor(private router: Router, private dataService: DataService) {
+  constructor(
+      private activatedRoute: ActivatedRoute,
+      private router: Router,
+              private dataService: DataService) {
   }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<ServiceResult> {
-    return this.dataService.getData()
+
+    let id = route.params['id'];
+
+    return this.dataService.getData(id)
         .map((serviceResult: ServiceResult) => {
           return serviceResult;
         })

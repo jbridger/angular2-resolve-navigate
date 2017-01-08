@@ -1,9 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from './data.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   template: `Home component 
+
+<div>
+  <input type="text" [(ngModel)]="inputVal">Error Response
+</div>
 
 <button (click)="makeErrorResponse()">Error Response</button>
 <button (click)="makeHappyResponse()">Happy Response</button>
@@ -13,17 +17,17 @@ import { Router, ActivatedRoute } from '@angular/router';
 <div>
   <router-outlet></router-outlet>
 </div>
-  
-  
-
 `
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+  @Input() public inputVal: string;
 
   constructor(public dataService: DataService,
-              private route: ActivatedRoute,
+              private activatedRoute: ActivatedRoute,
               private router: Router) {
+  }
 
+  ngOnInit() {
   }
 
   makeErrorResponse() {
@@ -35,7 +39,8 @@ export class HomeComponent {
   }
 
   makeRequest() {
-    console.log(this.router.url);
-    this.router.navigate(['display'], {relativeTo: this.route, skipLocationChange: true})
+    console.log(this.inputVal);
+    console.log(this.router.routerState.snapshot.url);
+    this.router.navigate([this.inputVal], {relativeTo: this.activatedRoute})
   }
 }
